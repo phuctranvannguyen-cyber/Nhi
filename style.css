@@ -1,0 +1,345 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffdbe8 0%,
+        #ffeec8 45%,
+        #fff8ee 100%
+    );
+
+}
+
+/* ===========================
+   SKY
+=========================== */
+
+.sky{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(255,255,255,.6),
+
+        transparent 55%
+
+    );
+
+}
+
+/* ===========================
+   SUN
+=========================== */
+
+.sun{
+
+    position:absolute;
+
+    top:70px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        #fffef6,
+
+        #ffe37d,
+
+        #ffca5f
+
+    );
+
+    box-shadow:
+
+        0 0 60px #ffe88b,
+
+        0 0 120px #ffe88b;
+
+    animation:
+
+        sunGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes sunGlow{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* ===========================
+   CLOUD
+=========================== */
+
+.cloud{
+
+    position:absolute;
+
+    background:white;
+
+    width:180px;
+
+    height:60px;
+
+    border-radius:50px;
+
+    opacity:.8;
+
+    filter:blur(1px);
+
+}
+
+.cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-35px;
+
+    left:25px;
+
+}
+
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+
+    height:90px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-45px;
+
+    right:25px;
+
+}
+
+.cloud1{
+
+    top:120px;
+
+    left:-250px;
+
+    animation:moveCloud 32s linear infinite;
+
+}
+
+.cloud2{
+
+    top:220px;
+
+    left:-450px;
+
+    animation:moveCloud 42s linear infinite;
+
+}
+
+.cloud3{
+
+    top:320px;
+
+    left:-350px;
+
+    animation:moveCloud 50s linear infinite;
+
+}
+
+@keyframes moveCloud{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(1800px);
+
+    }
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card{
+
+    position:relative;
+
+    z-index:2;
+
+    width:360px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+
+    rgba(255,255,255,.35);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+        0 20px 60px
+
+        rgba(255,170,190,.35);
+
+}
+
+/* ===========================
+   HEART
+=========================== */
+
+.heart{
+
+    font-size:90px;
+
+    animation:
+
+        beat 1.2s infinite;
+
+}
+
+@keyframes beat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.12);
+
+    }
+
+    50%{
+
+        transform:scale(.95);
+
+    }
+
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+h1{
+
+    margin-top:15px;
+
+    color:#ff5d96;
+
+    font-size:38px;
+
+}
+
+p{
+
+    margin-top:18px;
+
+    color:#666;
+
+    line-height:30px;
+
+    font-size:18px;
+
+}
+
+#clock{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#ff73a5;
+
+}
+
+/* ===========================
+   PETALS
+=========================== */
+
+#petals{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
