@@ -1,210 +1,130 @@
-// ============================
-// GOOD MORNING
-// script.js
-// ============================
-
-// Đồng hồ
-const clock = document.getElementById("clock");
-
-function updateClock() {
-
-    const now = new Date();
-
-    let hour = now.getHours();
-    let minute = now.getMinutes();
-
-    hour = hour < 10 ? "0" + hour : hour;
-    minute = minute < 10 ? "0" + minute : minute;
-
-    clock.innerHTML = `${hour}:${minute}`;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-updateClock();
-
-setInterval(updateClock,1000);
-
-
-// ============================
-// Cánh hoa
-// ============================
-
-const petals = document.getElementById("petals");
-
-function createPetal(){
-
-    const petal = document.createElement("div");
-
-    petal.innerHTML = "🌸";
-
-    petal.style.position="absolute";
-
-    petal.style.left=Math.random()*window.innerWidth+"px";
-
-    petal.style.top="-50px";
-
-    petal.style.fontSize=(18+Math.random()*18)+"px";
-
-    petal.style.opacity=.85;
-
-    petal.style.transition="transform linear";
-
-    petals.appendChild(petal);
-
-    const duration=5000+Math.random()*4000;
-
-    let x=(Math.random()-0.5)*300;
-
-    requestAnimationFrame(()=>{
-
-        petal.style.transform=
-        `translate(${x}px,${window.innerHeight+120}px) rotate(${720*Math.random()}deg)`;
-
-        petal.style.transitionDuration=duration+"ms";
-
-    });
-
-    setTimeout(()=>{
-
-        petal.remove();
-
-    },duration);
-
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+    font-family: 'Comfortaa', 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+    position: relative;
 }
 
-setInterval(createPetal,350);
-
-
-// ============================
-// Hạt sáng
-// ============================
-
-function sparkle(){
-
-    const star=document.createElement("div");
-
-    star.style.position="fixed";
-
-    star.style.width="6px";
-
-    star.style.height="6px";
-
-    star.style.borderRadius="50%";
-
-    star.style.background="white";
-
-    star.style.boxShadow="0 0 12px white";
-
-    star.style.left=Math.random()*window.innerWidth+"px";
-
-    star.style.top=Math.random()*window.innerHeight+"px";
-
-    star.style.opacity=0;
-
-    star.style.transition=".8s";
-
-    document.body.appendChild(star);
-
-    requestAnimationFrame(()=>{
-
-        star.style.opacity=1;
-
-        star.style.transform="scale(1.8)";
-
-    });
-
-    setTimeout(()=>{
-
-        star.style.opacity=0;
-
-    },600);
-
-    setTimeout(()=>{
-
-        star.remove();
-
-    },1400);
-
+/* Khối hộp quà 3D Soft-Clay */
+.card-3d {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 35px;
+    /* Đổ bóng dạng clay mềm mại */
+    box-shadow: 
+        inset 0 -8px 0px rgba(255, 182, 193, 0.4),
+        0 20px 40px rgba(255, 105, 180, 0.15);
+    text-align: center;
+    max-width: 90%;
+    width: 440px;
+    z-index: 10;
+    border: 4px solid #fff;
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-setInterval(sparkle,250);
+.card-3d:hover {
+    transform: scale(1.02);
+}
 
+/* Emoji nhảy nhót */
+.emoji-pan {
+    font-size: 65px;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
 
-// ============================
-// Tim nở khi chạm
-// ============================
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+}
 
-const heart=document.querySelector(".heart");
+/* Tiêu đề chữ màu Gradient lấp lánh */
+.gradient-title {
+    font-size: 26px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff69b4);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    font-weight: 800;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
 
-heart.addEventListener("click",()=>{
+@keyframes shine {
+    to { background-position: 200% center; }
+}
 
-    heart.animate(
+/* Container nút bấm */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    min-height: 80px;
+    position: relative;
+}
 
-        [
+/* Phong cách nút bấm 3D như viên kẹo */
+.btn {
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-            {transform:"scale(1)"},
-            {transform:"scale(1.35)"},
-            {transform:"scale(1)"}
+.btn-yes {
+    background: linear-gradient(135deg, #ff758f 0%, #ff4d6d 100%);
+    color: white;
+    box-shadow: 0 6px 0 #c9184a, 0 12px 20px rgba(255, 77, 109, 0.4);
+}
 
-        ],
+.btn-yes:active {
+    box-shadow: 0 2px 0 #c9184a, 0 4px 10px rgba(255, 77, 109, 0.4);
+    transform: translateY(4px);
+}
 
-        {
+.btn-no {
+    background: #f0f0f0;
+    color: #888;
+    box-shadow: 0 6px 0 #d0d0d0, 0 12px 20px rgba(0,0,0,0.05);
+    /* Lướt đi trong 5 giây theo yêu cầu trước đó của bạn */
+    transition: left 5s ease-out, top 5s ease-out, background-color 0.3s, transform 0.2s;
+}
 
-            duration:450
+/* Trái tim lấp lánh bay lên */
+.heart-pop {
+    position: absolute;
+    font-size: 30px;
+    animation: flyUp 2.5s forwards cubic-bezier(0.1, 0.8, 0.3, 1);
+    pointer-events: none;
+    z-index: 5;
+}
 
-        }
-
-    );
-
-    for(let i=0;i<18;i++){
-
-        const mini=document.createElement("div");
-
-        mini.innerHTML="💗";
-
-        mini.style.position="fixed";
-
-        const rect=heart.getBoundingClientRect();
-
-        mini.style.left=(rect.left+rect.width/2)+"px";
-        mini.style.top=(rect.top+rect.height/2)+"px";
-
-        mini.style.pointerEvents="none";
-
-        document.body.appendChild(mini);
-
-        const angle=Math.random()*Math.PI*2;
-
-        const distance=80+Math.random()*80;
-
-        mini.animate([
-
-            {
-
-                transform:"translate(0,0) scale(.5)",
-
-                opacity:1
-
-            },
-
-            {
-
-                transform:`translate(${Math.cos(angle)*distance}px,${Math.sin(angle)*distance}px) scale(1.4)`,
-
-                opacity:0
-
-            }
-
-        ],{
-
-            duration:900,
-
-            easing:"ease-out"
-
-        });
-
-        setTimeout(()=>mini.remove(),900);
-
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) scale(0.3) rotate(0deg);
+        opacity: 0;
     }
-
-});
+    15% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) scale(1.6) rotate(180deg);
+        opacity: 0;
+    }
+}
