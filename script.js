@@ -1,210 +1,345 @@
-// ============================
-// GOOD MORNING
-// script.js
-// ============================
+/* ===========================
+   RESET
+=========================== */
 
-// Đồng hồ
-const clock = document.getElementById("clock");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-function updateClock() {
+body{
 
-    const now = new Date();
+    overflow:hidden;
 
-    let hour = now.getHours();
-    let minute = now.getMinutes();
+    height:100vh;
 
-    hour = hour < 10 ? "0" + hour : hour;
-    minute = minute < 10 ? "0" + minute : minute;
+    display:flex;
 
-    clock.innerHTML = `${hour}:${minute}`;
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffdbe8 0%,
+        #ffeec8 45%,
+        #fff8ee 100%
+    );
 
 }
 
-updateClock();
+/* ===========================
+   SKY
+=========================== */
 
-setInterval(updateClock,1000);
+.sky{
 
+    position:fixed;
 
-// ============================
-// Cánh hoa
-// ============================
+    inset:0;
 
-const petals = document.getElementById("petals");
+    background:
 
-function createPetal(){
+    radial-gradient(
 
-    const petal = document.createElement("div");
+        circle at top,
 
-    petal.innerHTML = "🌸";
+        rgba(255,255,255,.6),
 
-    petal.style.position="absolute";
-
-    petal.style.left=Math.random()*window.innerWidth+"px";
-
-    petal.style.top="-50px";
-
-    petal.style.fontSize=(18+Math.random()*18)+"px";
-
-    petal.style.opacity=.85;
-
-    petal.style.transition="transform linear";
-
-    petals.appendChild(petal);
-
-    const duration=5000+Math.random()*4000;
-
-    let x=(Math.random()-0.5)*300;
-
-    requestAnimationFrame(()=>{
-
-        petal.style.transform=
-        `translate(${x}px,${window.innerHeight+120}px) rotate(${720*Math.random()}deg)`;
-
-        petal.style.transitionDuration=duration+"ms";
-
-    });
-
-    setTimeout(()=>{
-
-        petal.remove();
-
-    },duration);
-
-}
-
-setInterval(createPetal,350);
-
-
-// ============================
-// Hạt sáng
-// ============================
-
-function sparkle(){
-
-    const star=document.createElement("div");
-
-    star.style.position="fixed";
-
-    star.style.width="6px";
-
-    star.style.height="6px";
-
-    star.style.borderRadius="50%";
-
-    star.style.background="white";
-
-    star.style.boxShadow="0 0 12px white";
-
-    star.style.left=Math.random()*window.innerWidth+"px";
-
-    star.style.top=Math.random()*window.innerHeight+"px";
-
-    star.style.opacity=0;
-
-    star.style.transition=".8s";
-
-    document.body.appendChild(star);
-
-    requestAnimationFrame(()=>{
-
-        star.style.opacity=1;
-
-        star.style.transform="scale(1.8)";
-
-    });
-
-    setTimeout(()=>{
-
-        star.style.opacity=0;
-
-    },600);
-
-    setTimeout(()=>{
-
-        star.remove();
-
-    },1400);
-
-}
-
-setInterval(sparkle,250);
-
-
-// ============================
-// Tim nở khi chạm
-// ============================
-
-const heart=document.querySelector(".heart");
-
-heart.addEventListener("click",()=>{
-
-    heart.animate(
-
-        [
-
-            {transform:"scale(1)"},
-            {transform:"scale(1.35)"},
-            {transform:"scale(1)"}
-
-        ],
-
-        {
-
-            duration:450
-
-        }
+        transparent 55%
 
     );
 
-    for(let i=0;i<18;i++){
+}
 
-        const mini=document.createElement("div");
+/* ===========================
+   SUN
+=========================== */
 
-        mini.innerHTML="💗";
+.sun{
 
-        mini.style.position="fixed";
+    position:absolute;
 
-        const rect=heart.getBoundingClientRect();
+    top:70px;
 
-        mini.style.left=(rect.left+rect.width/2)+"px";
-        mini.style.top=(rect.top+rect.height/2)+"px";
+    width:140px;
 
-        mini.style.pointerEvents="none";
+    height:140px;
 
-        document.body.appendChild(mini);
+    border-radius:50%;
 
-        const angle=Math.random()*Math.PI*2;
+    background:
 
-        const distance=80+Math.random()*80;
+    radial-gradient(
 
-        mini.animate([
+        circle,
 
-            {
+        #fffef6,
 
-                transform:"translate(0,0) scale(.5)",
+        #ffe37d,
 
-                opacity:1
+        #ffca5f
 
-            },
+    );
 
-            {
+    box-shadow:
 
-                transform:`translate(${Math.cos(angle)*distance}px,${Math.sin(angle)*distance}px) scale(1.4)`,
+        0 0 60px #ffe88b,
 
-                opacity:0
+        0 0 120px #ffe88b;
 
-            }
+    animation:
 
-        ],{
+        sunGlow 4s ease-in-out infinite;
 
-            duration:900,
+}
 
-            easing:"ease-out"
+@keyframes sunGlow{
 
-        });
+    0%,100%{
 
-        setTimeout(()=>mini.remove(),900);
+        transform:scale(1);
 
     }
 
-});
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* ===========================
+   CLOUD
+=========================== */
+
+.cloud{
+
+    position:absolute;
+
+    background:white;
+
+    width:180px;
+
+    height:60px;
+
+    border-radius:50px;
+
+    opacity:.8;
+
+    filter:blur(1px);
+
+}
+
+.cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-35px;
+
+    left:25px;
+
+}
+
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+
+    height:90px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:-45px;
+
+    right:25px;
+
+}
+
+.cloud1{
+
+    top:120px;
+
+    left:-250px;
+
+    animation:moveCloud 32s linear infinite;
+
+}
+
+.cloud2{
+
+    top:220px;
+
+    left:-450px;
+
+    animation:moveCloud 42s linear infinite;
+
+}
+
+.cloud3{
+
+    top:320px;
+
+    left:-350px;
+
+    animation:moveCloud 50s linear infinite;
+
+}
+
+@keyframes moveCloud{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(1800px);
+
+    }
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card{
+
+    position:relative;
+
+    z-index:2;
+
+    width:360px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+
+    rgba(255,255,255,.35);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+        0 20px 60px
+
+        rgba(255,170,190,.35);
+
+}
+
+/* ===========================
+   HEART
+=========================== */
+
+.heart{
+
+    font-size:90px;
+
+    animation:
+
+        beat 1.2s infinite;
+
+}
+
+@keyframes beat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.12);
+
+    }
+
+    50%{
+
+        transform:scale(.95);
+
+    }
+
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+h1{
+
+    margin-top:15px;
+
+    color:#ff5d96;
+
+    font-size:38px;
+
+}
+
+p{
+
+    margin-top:18px;
+
+    color:#666;
+
+    line-height:30px;
+
+    font-size:18px;
+
+}
+
+#clock{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#ff73a5;
+
+}
+
+/* ===========================
+   PETALS
+=========================== */
+
+#petals{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
