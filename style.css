@@ -1,0 +1,475 @@
+/*====================================================
+                    RESET
+====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+}
+
+/*====================================================
+                    BACKGROUND
+====================================================*/
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #fff9fb,
+        #ffe8ef,
+        #ffd9e6
+    );
+
+    color:#555;
+
+}
+
+/*====================================================
+                    SCENE
+====================================================*/
+
+.scene{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.8s;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+/*====================================================
+                    GLASS CARD
+====================================================*/
+
+.glass{
+
+    width:720px;
+
+    max-width:90%;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 20px 45px rgba(255,170,210,.28);
+
+    text-align:center;
+
+}
+
+/*====================================================
+                    TITLE
+====================================================*/
+
+h1{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+h2{
+
+    color:#ff5f98;
+
+    margin-bottom:18px;
+
+}
+
+p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+/*====================================================
+                    BUTTON
+====================================================*/
+
+button{
+
+    margin-top:30px;
+
+    border:none;
+
+    padding:
+
+        16px 34px;
+
+    border-radius:999px;
+
+    background:#ff77ad;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:
+
+        translateY(-4px)
+        scale(1.05);
+
+    box-shadow:
+
+        0 15px 35px rgba(255,120,180,.35);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/*====================================================
+                    LETTER
+====================================================*/
+
+.envelope{
+
+    width:180px;
+
+    height:180px;
+
+    margin:35px auto;
+
+    border-radius:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:90px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #fff,
+
+        #ffd7e8
+
+    );
+
+    box-shadow:
+
+        0 20px 40px rgba(255,160,200,.25);
+
+    transition:.5s;
+
+}
+
+.envelope:hover{
+
+    transform:
+
+        rotate(-5deg)
+
+        scale(1.05);
+
+}
+
+/*====================================================
+                    LETTER TEXT
+====================================================*/
+
+#letterText{
+
+    display:none;
+
+    margin-top:25px;
+
+    animation:
+
+        fadeUp .8s ease;
+
+}
+
+#letterText p{
+
+    margin:10px 0;
+
+}
+
+/*====================================================
+                    HEART
+====================================================*/
+
+#brokenHeart{
+
+    font-size:140px;
+
+    margin:35px 0;
+
+    animation:
+
+        heartbeat 1.3s infinite;
+
+}
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*====================================================
+                    GIFT
+====================================================*/
+
+#gift{
+
+    font-size:140px;
+
+    margin:35px 0;
+
+    animation:
+
+        giftFloat 3s infinite ease-in-out;
+
+}
+
+@keyframes giftFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+#giftMessage{
+
+    display:none;
+
+    margin-top:25px;
+
+    animation:
+
+        fadeUp .8s ease;
+
+}
+
+/*====================================================
+                    FADE
+====================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+            translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+/*====================================================
+                    RAIN
+====================================================*/
+
+#rain{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+.drop{
+
+    position:absolute;
+
+    width:2px;
+
+    height:18px;
+
+    background:
+
+        rgba(255,255,255,.8);
+
+    animation:
+
+        rainFall linear infinite;
+
+}
+
+@keyframes rainFall{
+
+    from{
+
+        transform:
+
+            translateY(-30px);
+
+    }
+
+    to{
+
+        transform:
+
+            translateY(120vh);
+
+    }
+
+}
+
+/*====================================================
+                    HEART
+====================================================*/
+
+#heart-container{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+/*====================================================
+                    SAKURA
+====================================================*/
+
+#sakura-container{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+/*====================================================
+                    RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+    .glass{
+
+        padding:30px;
+
+    }
+
+    h1{
+
+        font-size:50px;
+
+    }
+
+    #gift,
+    #brokenHeart{
+
+        font-size:100px;
+
+    }
+
+    p{
+
+        font-size:18px;
+
+    }
+
+}
