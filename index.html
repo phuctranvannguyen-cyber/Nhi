@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Goodbye Sadness 🌸</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="sky"></div>
+
+    <!-- Sun -->
+    <div class="sun"></div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <!-- Sakura -->
+    <div id="sakura-container"></div>
+
+    <!-- Sparkles -->
+    <div id="sparkle-container"></div>
+
+    <!-- Main Welcome Card -->
+    <section id="welcome">
+
+        <div class="glass-card">
+
+            <div class="flower">🌸</div>
+
+            <h1 id="typing-title"></h1>
+
+            <p id="typing-text"></p>
+
+            <button id="start-btn">
+                Bắt đầu 🌷
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+     Scene 2
+========================= -->
+
+<section id="scene2" class="hidden">
+
+    <div class="glass-card scene-card">
+
+        <h2 class="scene-title">
+            💗 Bỏ hết nỗi buồn vào đây nhé
+        </h2>
+
+        <p class="scene-subtitle">
+            Mình sẽ giữ giúp cậu và mang nó đi thật xa.
+        </p>
+
+        <!-- Bag -->
+
+        <div class="bag-wrapper">
+
+            <div class="bag" id="bag">
+
+                <div class="bag-top"></div>
+
+                <div class="bag-knot"></div>
+
+                <div class="bag-face">
+
+                    <span class="eye left-eye"></span>
+                    <span class="eye right-eye"></span>
+
+                    <div class="mouth"></div>
+
+                    <div class="blush blush-left"></div>
+                    <div class="blush blush-right"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Text -->
+
+        <textarea
+            id="sadness-input"
+            maxlength="500"
+            placeholder="Viết tất cả những điều đang khiến cậu buồn..."
+        ></textarea>
+
+        <div class="count">
+
+            <span id="char-count">0</span>/500
+
+        </div>
+
+        <!-- Button -->
+
+        <button id="bag-btn">
+
+            🎀 Buộc túi lại
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+        Scene 3 - Trash
+===================================== -->
+
+<section id="scene3" class="hidden">
+
+    <div class="scene-card">
+
+        <h2 class="scene-title">
+            🗑️ Để mình xử lý giúp cậu nhé
+        </h2>
+
+        <p class="scene-subtitle">
+            Chỉ cần bỏ chiếc túi này vào đây...
+        </p>
+
+        <div class="trash-wrapper">
+
+            <!-- Flying Bag -->
+
+            <div id="flyingBag" class="bag flying-bag">
+
+                <div class="bag-top"></div>
+
+                <div class="bag-knot"></div>
+
+                <div class="bag-face">
+
+                    <span class="eye left-eye"></span>
+                    <span class="eye right-eye"></span>
+
+                    <div class="mouth"></div>
+
+                    <div class="blush blush-left"></div>
+                    <div class="blush blush-right"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Trash -->
+
+            <div id="trash">
+
+                <div class="trash-lid"></div>
+
+                <div class="trash-body">
+
+                    <div class="trash-face">
+
+                        <span class="eye left-eye"></span>
+
+                        <span class="eye right-eye"></span>
+
+                        <div class="mouth"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="throw-btn">
+
+            🗑️ Bỏ vào thùng
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+        Scene 4 - Gift
+===================================== -->
+
+<section id="scene4" class="hidden">
+
+    <div class="scene-card">
+
+        <h2 class="scene-title">
+
+            🎁 Một món quà dành cho cậu
+
+        </h2>
+
+        <div id="giftBox">
+
+            <div class="gift-lid"></div>
+
+            <div class="gift-body"></div>
+
+            <div class="gift-ribbon-v"></div>
+
+            <div class="gift-ribbon-h"></div>
+
+        </div>
+
+        <button id="openGift">
+
+            🎀 Mở quà
+
+        </button>
+
+        <div id="letter">
+
+            <h2>💌</h2>
+
+            <p>
+
+                Sang tháng mới<br><br>
+
+                Không được buồn nữa nhé.<br><br>
+
+                Không được khóc nữa đấy.<br><br>
+
+                Nếu có chuyện gì...<br><br>
+
+                Hãy nói với tui.<br><br>
+
+                Và...<br><br>
+
+                <strong>
+
+                    Hợp tác với tui nha ❤️
+
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Floating Hearts -->
+
+<div id="heart-container"></div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
